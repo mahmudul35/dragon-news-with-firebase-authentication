@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { NavLink } from "react-router-dom";
 const LeftNavbar = () => {
   const [categories, setCatgories] = useState([]);
   useEffect(() => {
@@ -14,12 +14,13 @@ const LeftNavbar = () => {
       <div className="flex flex-col gap-2">
         {categories.map((category) => {
           return (
-            <button
+            <NavLink
+              to={`/category/${category.category_id}`}
               key={category.category_id}
               className="btn bg-base-100 border-none"
             >
               {category.category_name}
-            </button>
+            </NavLink>
           );
         })}
       </div>
